@@ -3,7 +3,7 @@ using System.Data.SQLite;
 using System;
 using System.Collections.ObjectModel;
 
-namespace MoS.Classes {
+namespace MoS {
     public static class Database {
         private static bool connectionIsOpen = false;
         private static SQLiteConnection CONNECTION = new SQLiteConnection($"Data Source={s.Default.DbPath};Version=3;");

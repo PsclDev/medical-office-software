@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Windows;
 
-namespace MoS.Classes {
+namespace MoS {
     public static class Log {
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static string GetMethodName() {
