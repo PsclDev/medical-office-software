@@ -5,8 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoS"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Height="600" Width="1080" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" AllowsTransparency="True" WindowStyle="None" MinHeight="400" MinWidth="880">
+    <Window.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="60" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="200" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="60" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Raleway"/>
+        </Style>
+    </Window.Resources>
+
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid Background="#303743">
+        <Grid Height="30" VerticalAlignment="Top" Background="#26252E">
+            <Grid Width="888" HorizontalAlignment="Left" Margin="60 0 0 0" Background="Transparent" MouseDown="Grid_MouseDown"/>
+            <TextBlock Text="Medical Office Software" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="BtnLogs" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Click="BtnLogs_Click">
+                    <materialDesign:PackIcon Kind="FileCompare" Width="30" Height="20" Foreground="White"/>
+                </Button>
+                <Button x:Name="BtnSettings" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Click="BtnSettings_Click">
+                    <materialDesign:PackIcon Kind="SettingsOutline" Width="30" Height="20" Foreground="White"/>
+                </Button>
+                <Button x:Name="BtnPLogout" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Click="BtnPLogout_Click" Margin="0 0 25 0">
+                    <materialDesign:PackIcon Kind="Logout" Width="30" Height="20" Foreground="White"/>
+                </Button>
+
+                <Button x:Name="BtnMinimize" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Click="BtnMinimize_Click">
+                    <materialDesign:PackIcon Kind="WindowMinimize" Width="30" Height="20" Foreground="White"/>
+                </Button>
+                <Button x:Name="BtnPowerOff" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Click="BtnPowerOff_Click">
+                    <materialDesign:PackIcon Kind="Close" Width="30" Height="20" Foreground="White"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="GridMenu" Panel.ZIndex="1" Width="60" HorizontalAlignment="Left" Background="#26252E">
+            <StackPanel>
+                <Grid Height="30" Background="White">
+                    <Button x:Name="ButtonCloseMenu" Width="60" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
+                        <materialDesign:PackIcon Foreground="#26252E" Kind="MenuOpen" Width="20" Height="20"/>
+                    </Button>
+                    <Button x:Name="ButtonOpenMenu" Width="60" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
+                        <materialDesign:PackIcon Foreground="#26252E" Kind="Menu" Width="20" Height="20"/>
+                    </Button>
+                </Grid>
+                <Grid x:Name="GridMenuList" Height="570"/>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="Grid_Main" Height="570" Width="1020" VerticalAlignment="Bottom" HorizontalAlignment="Right" x:FieldModifier="public">
+            <Grid Panel.ZIndex="1">
+                <materialDesign:Snackbar x:Name="Snackbar_MessageBox" HorizontalAlignment="Stretch" x:FieldModifier="public" IsActive="False">
+                    <materialDesign:SnackbarMessage x:Name="SnackbarMessage" x:FieldModifier="public" Content=""/>
+                </materialDesign:Snackbar>
+            </Grid>
+            <Grid x:Name="Grid_Main_UC"/>
+        </Grid>
     </Grid>
 </Window>
