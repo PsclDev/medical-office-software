@@ -1,0 +1,24 @@
+﻿<Window x:Class="MoS.PopUp.NewVisit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MoS.PopUp"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Height="470" Width="980" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <StackPanel Background="#26252E">
+        <StackPanel Margin="25 0 25 25">
+            <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                <TextBox x:Name="TxtBxSickFromTo" materialDesign:HintAssist.Hint="Written sick from - to" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="White" Width="350"/>
+                <TextBox x:Name="TxtBxWrittenBy" materialDesign:HintAssist.Hint="Written by" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="White" Width="350" Margin="25 20 0 0"/>
+            </StackPanel>
+            <TextBox x:Name="TxtBxResult" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Margin="0 15 0 0" VerticalAlignment="Top" Height="200" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="Result" IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextFieldTextBoxEnabledComboBox}" Foreground="White"/>
+            <TextBox x:Name="TxtBxMedication" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Margin="0 15 0 0" VerticalAlignment="Top" Height="100" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="Medication" IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextFieldTextBoxEnabledComboBox}" Foreground="White"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 25 25 0">
+                <Button x:Name="BtnAddVisit" Content="Add Visit" Width="180" Margin="0 0 30 0" Click="BtnAddVisit_Click"/>
+                <Button x:Name="BtnDiscard" Content="Discard" Width="180" Click="BtnDiscard_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Window>
