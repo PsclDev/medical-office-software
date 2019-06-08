@@ -1,0 +1,43 @@
+﻿<Window x:Class="MoS.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MoS"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Height="400" Width="280" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
+
+    <StackPanel Background="#26252E">
+        <Grid Height="30" Background="Transparent" MouseDown="Grid_MouseDown">
+            <TextBlock Text="MedicalOfficeSoftware" VerticalAlignment="Center" Margin="10 0 0 0" Foreground="White" FontSize="15" FontFamily="Raleway"/>
+            <Button x:Name="BtnShutdown" Background="{x:Null}" BorderBrush="{x:Null}" Width="40" Padding="0" VerticalAlignment="Center" HorizontalAlignment="Right" Click="BtnShutdown_Click">
+                <materialDesign:PackIcon Kind="Close" Width="25" Height="25" Foreground="White"/>
+            </Button>
+            <Button x:Name="BtnMinimize"  Background="{x:Null}" BorderBrush="{x:Null}" Width="40" Padding="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 41 0" Click="BtnMinimize_Click">
+                <materialDesign:PackIcon Kind="WindowMinimize" Width="25" Height="25" Foreground="White"/>
+            </Button>
+        </Grid>
+        <StackPanel Height="370">
+            <Grid Height="150">
+                <materialDesign:PackIcon Kind="TextboxPassword" Width="100" Height="150" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Height="50">
+                <materialDesign:PackIcon Kind="Contacts" Margin="10" Width="20" Height="20" VerticalAlignment="Center" Foreground="White"/>
+                <TextBox x:Name="TxtBx" materialDesign:HintAssist.Hint="Username" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="White" Width="230" Height="35" VerticalAlignment="Center" Margin="0 0 0 10" FontFamily="Raleway" TabIndex="1"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="50">
+                <materialDesign:PackIcon Kind="Onepassword" Margin="10" Width="20" Height="20" VerticalAlignment="Center" Foreground="White"/>
+                <PasswordBox x:Name="PwBx" materialDesign:HintAssist.Hint="Password" Foreground="White" Width="230" Height="35"  VerticalAlignment="Center" Margin="0 0 0 10" FontFamily="Raleway" KeyUp="PwBx_KeyUp" TabIndex="2"/>
+            </StackPanel>
+            <CheckBox x:Name="ChckBxAutoLogin" Content="Save Login" Margin="10 5 0 0" Foreground="White"/>
+            <StackPanel Height="80">
+                <Grid>
+                    <Label x:Name="LblIncorrectInput" Content="username or password is incorrect" Foreground="#FFC300" FontFamily="Raleway" FontSize="12.8" HorizontalAlignment="Center" Margin="0 10 0 3" Visibility="Hidden"/>
+                    <Label x:Name="LblDatabaseError" Content="Database connect failed" Foreground="#FFC300" FontFamily="Raleway" FontSize="12.8" HorizontalAlignment="Center" Margin="0 10 0 3" Visibility="Hidden"/>
+                </Grid>
+                <Button x:Name="BtnLogin" Content="Login" Width="200" Background="White" BorderBrush="White" Foreground="#26252E" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Raleway" FontSize="20" Click="BtnLogin_Click" TabIndex="3"/>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Window>
