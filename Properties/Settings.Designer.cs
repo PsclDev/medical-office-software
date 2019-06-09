@@ -25,7 +25,7 @@ namespace MoS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Pascal\\Documents\\MEGA\\Medical-Office-Software\\mosDB.sqlite")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Pascal\\Documents\\GitKraken\\MedicalOfficeSoftware\\mosDB.sqlite")]
         public string DbPath {
             get {
                 return ((string)(this["DbPath"]));

@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="DbPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\Pascal\Documents\MEGA\Medical-Office-Software\mosDB.sqlite</Value>
+      <Value Profile="(Default)">C:\Users\Pascal\Documents\GitKraken\MedicalOfficeSoftware\mosDB.sqlite</Value>
     </Setting>
     <Setting Name="AutoLogin" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

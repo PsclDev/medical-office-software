@@ -1,4 +1,4 @@
-﻿using s = MoS.Properties.Settings;
+﻿ using s = MoS.Properties.Settings;
 using System.Data.SQLite;
 using System;
 using System.Collections.ObjectModel;
@@ -120,6 +120,7 @@ namespace MoS {
                             Town = dataReader["zipCode"].ToString(),
                             Birthday = dataReader["dateOfBirth"].ToString(),
                             Phone = dataReader["phoneNumber"].ToString(),
+                            LastVisit = dataReader["lastVisit"].ToString()
                         };
 
                         PatientList.Add(patient);
@@ -145,6 +146,11 @@ namespace MoS {
                             Name = dataReader["username"].ToString(),
                             Role = dataReader["role"].ToString()
                         };
+
+                        if (employee.Role == "doctor")
+                            employee.RoleID = 0;
+                        else
+                            employee.RoleID = 1;
 
                         EmployeeList.Add(employee);
                     }
