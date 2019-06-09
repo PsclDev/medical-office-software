@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -22,7 +23,12 @@ namespace MoS.UserControls {
         }
 
         private void ListViewPatient_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            DateTime lastVisit = Convert.ToDateTime(patientList[ListViewPatient.SelectedIndex].LastVisit);
 
+            if ((DateTime.Now - lastVisit).TotalDays > 3650)
+                BtnDeletePatient.Visibility = Visibility.Visible;
+            else
+                BtnDeletePatient.Visibility = Visibility.Hidden;
         }
 
         private void BtnEditPatient_Click(object sender, RoutedEventArgs e) {
@@ -37,7 +43,7 @@ namespace MoS.UserControls {
                 }
             }
             else
-                CstmMsgBx.Error("No Patient is selected");
+                CstmMsgBx.Error("you need to select a patient");
         }
 
         private void BtnAddPatient_Click(object sender, RoutedEventArgs e) {
@@ -48,6 +54,14 @@ namespace MoS.UserControls {
                 patientList.Add(np.Patient);
                 Database.RunSQL($"INSERT into patient (firstName, lastName, street, zipCode, dateOfBirth, phoneNumber, healthInsurance, insuranceNumber) VALUES ('{np.Patient.Firstname}','{np.Patient.Lastname}','{np.Patient.Street}','{np.Patient.Town}','{np.Patient.Birthday}','{np.Patient.Phone}','{np.Patient.HealthInsurance}','{np.Patient.InsuranceNumber}')");
             }
+        }
+
+        private void BtnDeletePatient_Click(object sender, RoutedEventArgs e) {
+            int id = patientList[ListViewPatient.SelectedIndex].Id;
+            string sql = $"DELETE FROM patient where id = {id}";
+            Database.RunSQL(sql);
+            sql = $"DELETE FROM patient_visit where idPatient = {id}";
+            Database.RunSQL(sql);
         }
     }
 }

@@ -30,6 +30,7 @@
                         <GridViewColumn Header="Street" Width="200" DisplayMemberBinding="{Binding Street}"/>
                         <GridViewColumn Header="City" Width="150" DisplayMemberBinding="{Binding Town}"/>
                         <GridViewColumn Header="Phone" Width="150" DisplayMemberBinding="{Binding Phone}"/>
+                        <GridViewColumn Header="Last Visit" Width="150" DisplayMemberBinding="{Binding LastVisit}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -45,6 +46,12 @@
                 <DockPanel LastChildFill="True">
                     <materialDesign:PackIcon Kind="PlaylistEdit" Width="30" Height="20" Foreground="Black"/>
                     <TextBlock Text="Edit Patient" VerticalAlignment="Center" Foreground="Black" FontFamily="Raleway" FontSize="16"/>
+                </DockPanel>
+            </Button>
+            <Button x:Name="BtnDeletePatient" Width="170" Margin="15 0 0 0" Padding="0" Background="Red" BorderBrush="Red" Click="BtnDeletePatient_Click" Visibility="Hidden">
+                <DockPanel LastChildFill="True">
+                    <materialDesign:PackIcon Kind="PlaylistRemove" Width="30" Height="20" Foreground="Black"/>
+                    <TextBlock Text="Delete Patient" VerticalAlignment="Center" Foreground="Black" FontFamily="Raleway" FontSize="16"/>
                 </DockPanel>
             </Button>
         </StackPanel>
