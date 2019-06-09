@@ -40,7 +40,16 @@ namespace MoS.UserControls {
         }
 
         private void BtnRemoveEmplyoee_Click(object sender, System.Windows.RoutedEventArgs e) {
-
+            int index = ListViewEmployees.SelectedIndex;
+            if (index != -1) {
+                employeeList.RemoveAt(index);
+                string sql = $"DELETE FROM employee where id = {index}";
+                Database.RunSQL(sql);
+                sql = $"DELETE FROM employee_login where id = {index}";
+                Database.RunSQL(sql);
+            }
+            else
+                CstmMsgBx.Error("you need to select a employee");
         }
 
         private void ComboboxPermission_SelectionChanged(object sender, SelectionChangedEventArgs e) {

@@ -26,7 +26,7 @@
                         <GridViewColumn Header="Role" Width="150">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate DataType="wpf:Entry">
-                                    <ComboBox x:Name="ComboboxPermission" Width="140" Background="#303743" Foreground="White" FontFamily="Raleway" Height="20" Padding="0" SelectedIndex="{Binding Role, Mode=OneWay}" SelectionChanged="ComboboxPermission_SelectionChanged" IsEnabled="{Binding IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListViewItem}}}">
+                                    <ComboBox x:Name="ComboboxPermission" Width="140" Background="#303743" Foreground="White" FontFamily="Raleway" Height="20" Padding="0" SelectedIndex="{Binding RoleID, Mode=OneWay}" SelectionChanged="ComboboxPermission_SelectionChanged" IsEnabled="{Binding IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListViewItem}}}">
                                         <ComboBoxItem Content="Doctor"/>
                                         <ComboBoxItem Content="Practice Nurse"/>
                                     </ComboBox>
@@ -44,7 +44,7 @@
                     <TextBlock Text="Add Employee" VerticalAlignment="Center" Foreground="Black" FontFamily="Raleway" FontSize="16"/>
                 </DockPanel>
             </Button>
-            <Button x:Name="BtnRemoveEmplyoee" Width="190" Margin="15 0 0 0" Padding="0" Click="BtnRemoveEmplyoee_Click">
+            <Button x:Name="BtnRemoveEmplyoee" Width="190" Margin="15 0 0 0" Padding="0" Background="Red" BorderBrush="Red" Click="BtnRemoveEmplyoee_Click">
                 <DockPanel LastChildFill="True">
                     <materialDesign:PackIcon Kind="UserRemove" Width="30" Height="20" Foreground="Black"/>
                     <TextBlock Text="Remove Employee" VerticalAlignment="Center" Foreground="Black" FontFamily="Raleway" FontSize="16"/>
