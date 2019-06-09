@@ -9,10 +9,11 @@
         public string Town { get; set; }
         public string Birthday { get; set; }
         public string Phone { get; set; }
+        public string LastVisit { get; set; }
 
         public Patient() { }
 
-        public Patient(int id, string healthInsurance, string insuranceNumber, string firstname, string lastname, string street, string town, string birthday, string phone) {
+        public Patient(int id, string healthInsurance, string insuranceNumber, string firstname, string lastname, string street, string town, string birthday, string phone, string lastVisit) {
             this.Id = id;
             this.HealthInsurance = healthInsurance;
             this.InsuranceNumber = insuranceNumber;
@@ -22,6 +23,7 @@
             this.Town = town;
             this.Birthday = birthday;
             this.Phone = phone;
+            this.LastVisit = lastVisit;
         }
 
         public override string ToString() {
