@@ -1,0 +1,20 @@
+﻿<Window x:Class="MoS.PopUp.CstmDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MoS.PopUp"
+        mc:Ignorable="d"
+        Height="200" Width="450" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+    <Border x:Name="Window" CornerRadius="20" Background="White">
+        <StackPanel>
+            <TextBlock x:Name="TxtBlck_Header" Text="Header" FontSize="24" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="TxtBlck_Text" Text="Text" Height="100" FontSize="18" Margin="15 15 15 0" TextWrapping="Wrap"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 10 20 0">
+            <Button x:Name="Btn_Ok" Background="Black" Foreground="White" Width="125" Click="Btn_Ok_Click"/>
+            <Button x:Name="Btn_Cancel" Background="Black" Foreground="White" Width="125" Margin="15 0 0 0" Click="Btn_Cancel_Click"/>                
+            </StackPanel>
+            <StackPanel VerticalAlignment="Bottom"/>
+        </StackPanel>
+    </Border>
+</Window>
