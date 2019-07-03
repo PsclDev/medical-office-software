@@ -120,7 +120,8 @@ namespace MoS {
                             Town = dataReader["zipCode"].ToString(),
                             Birthday = dataReader["dateOfBirth"].ToString(),
                             Phone = dataReader["phoneNumber"].ToString(),
-                            LastVisit = dataReader["lastVisit"].ToString()
+                            LastVisit = dataReader["lastVisit"].ToString(),
+                            Filtering = $"{dataReader["id"].ToString()} {dataReader["healthInsurance"].ToString()} {dataReader["insuranceNumber"].ToString()} {dataReader["firstName"].ToString()} {dataReader["lastName"].ToString()} {dataReader["street"].ToString()} {dataReader["zipCode"].ToString()} {dataReader["dateOfBirth"].ToString()} {dataReader["phoneNumber"].ToString()} {dataReader["lastVisit"].ToString()} "
                         };
 
                         PatientList.Add(patient);

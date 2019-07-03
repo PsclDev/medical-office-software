@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace MoS.UserControls {
     /// <summary>
@@ -11,9 +12,22 @@ namespace MoS.UserControls {
         public PatientList() {
             InitializeComponent();
             LoadPatients();
+            LoadFiltering();
         }
 
         private ObservableCollection<Objects.Patient> patientList = new ObservableCollection<Objects.Patient>();
+
+        private void LoadFiltering() {
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListViewPatient.ItemsSource);
+            view.Filter = PatientFilter;
+        }
+
+        private bool PatientFilter(object item) {
+            if (String.IsNullOrEmpty(TxtBx_Filtering.Text))
+                return true;
+            else
+                return ((item as Objects.Patient).Filtering.IndexOf(TxtBx_Filtering.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+        }
 
         private void LoadPatients() {
             ListViewPatient.Items.Clear();
@@ -62,6 +76,10 @@ namespace MoS.UserControls {
             Database.RunSQL(sql);
             sql = $"DELETE FROM patient_visit where idPatient = {id}";
             Database.RunSQL(sql);
+        }
+
+        private void TxtBx_Filtering_TextChanged(object sender, TextChangedEventArgs e) {
+            CollectionViewSource.GetDefaultView(ListViewPatient.ItemsSource).Refresh();
         }
     }
 }

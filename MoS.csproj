@@ -83,6 +83,9 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PopUp\CstmDialog.xaml.cs">
+      <DependentUpon>CstmDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\EmployeeManagement.xaml.cs">
       <DependentUpon>EmployeeManagement.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PopUp\CstmDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PopUp\EditPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
