@@ -18,7 +18,13 @@
         <Grid Height="45">
             <TextBlock Text="Patient Details" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Grid>
-        <ComboBox x:Name="CmBxPatients" Width="350" Text="Please Select a Patient" IsReadOnly="True" IsEditable="True" Background="#303743" Foreground="White" FontSize="18" FontFamily="Raleway" Height="30" Margin="50 0 0 0" Padding="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="CmBxPatients_SelectionChanged"/>
+        <ComboBox x:Name="CmBxPatients" Width="350" Text="Please Select a Patient" Background="#303743" Foreground="White" FontSize="18" FontFamily="Raleway" Height="30" IsEditable="True" HorizontalContentAlignment="Center" SelectionChanged="CmBxPatients_SelectionChanged">
+            <ComboBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </ComboBox.ItemsPanel>
+        </ComboBox>
         <StackPanel Orientation="Horizontal" Height="470" Margin="0 25 0 0">
             <Expander ExpandDirection="Right" Foreground="White" Background="#303743">
                 <Expander.Header>
