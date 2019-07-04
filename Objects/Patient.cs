@@ -15,16 +15,16 @@
         public Patient() { }
 
         public Patient(int id, string healthInsurance, string insuranceNumber, string firstname, string lastname, string street, string town, string birthday, string phone, string lastVisit, string filtering = "") {
-            this.Id = id;
-            this.HealthInsurance = healthInsurance;
-            this.InsuranceNumber = insuranceNumber;
-            this.Firstname = firstname;
-            this.Lastname = lastname;
-            this.Street = street;
-            this.Town = town;
-            this.Birthday = birthday;
-            this.Phone = phone;
-            this.LastVisit = lastVisit;
+            Id = id;
+            HealthInsurance = healthInsurance;
+            InsuranceNumber = insuranceNumber;
+            Firstname = firstname;
+            Lastname = lastname;
+            Street = street;
+            Town = town;
+            Birthday = birthday;
+            Phone = phone;
+            LastVisit = lastVisit;
             Filtering = filtering;
         }
 

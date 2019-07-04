@@ -1,16 +1,18 @@
-﻿ using s = MoS.Properties.Settings;
+﻿using s = MoS.Properties.Settings;
 using System.Data.SQLite;
 using System;
 using System.Collections.ObjectModel;
 
 namespace MoS {
     public static class Database {
+        #region Variables
         private static bool connectionIsOpen = false;
         private static SQLiteConnection CONNECTION = new SQLiteConnection($"Data Source={s.Default.DbPath};Version=3;");
 
         public static ObservableCollection<Objects.Patient> PatientList = new ObservableCollection<Objects.Patient>();
         public static ObservableCollection<Objects.Employee> EmployeeList = new ObservableCollection<Objects.Employee>();
-
+        #endregion
+        #region Default Methods
         private static void ConnectOpen() {
             CONNECTION.Open();
             connectionIsOpen = true;
@@ -27,7 +29,6 @@ namespace MoS {
                 CONNECTION.Close();
             }
         }
-
         public static int RunSQL(string SQL) {
             try {
                 ConnectOpen();
@@ -51,7 +52,9 @@ namespace MoS {
             }
             return -1;
         }
+        #endregion
 
+        #region Custom Methods
         public static int GetUserID(string Username) {
             int IdUser = -1;
 
@@ -195,5 +198,6 @@ namespace MoS {
                 return null;
             }
         }
+        #endregion
     }
 }

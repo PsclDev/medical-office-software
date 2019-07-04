@@ -42,6 +42,7 @@ namespace MoS {
         }
         #endregion
 
+        #region Methods
         private void AuthenticateLogin(string enteredUsername, string enteredPassword, bool autoLogin) {
             string hashed_enteredPassword = "";
             var db_data = GetUserInformations(enteredUsername);
@@ -73,5 +74,6 @@ namespace MoS {
             if (AutoLogin == true)
                 Properties.loggedOnUser.EnableAutoLogin(username, password);
         }
+        #endregion
     }
 }
