@@ -19,7 +19,7 @@
             <TextBlock Text="Employee Management" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Grid>
         <Grid Height="470">
-            <ListView x:Name="ListViewEmployees" Height="470" FontSize="14" Width="980" Margin="15 0 15 0" Padding="0" SelectionChanged="ListViewEmployee_SelectionChanged">
+            <ListView x:Name="ListViewEmployees" Height="470" FontSize="14" Width="980" Margin="15 0 15 0" Padding="0">
                 <ListView.View>
                     <GridView x:Name="GridViewUsedDataPath">
                         <GridViewColumn Header="Username" Width="150" DisplayMemberBinding="{Binding Name}"/>

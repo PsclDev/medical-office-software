@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
 
 
@@ -19,10 +20,6 @@ namespace MoS.UserControls {
             employeeList = Database.EmployeeList;
 
             ListViewEmployees.ItemsSource = employeeList;
-        }
-
-        private void ListViewEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-
         }
 
         private void BtnAddEmployee_Click(object sender, System.Windows.RoutedEventArgs e) {
@@ -53,7 +50,12 @@ namespace MoS.UserControls {
         }
 
         private void ComboboxPermission_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-
+            int index = ListViewEmployees.SelectedIndex;
+            if (index != -1) {
+                var newRole = ((sender as ComboBox).SelectedItem as ComboBoxItem).Content as string;
+                string sql = $"UPDATE employee SET role = '{newRole}' WHERE id = {index}";
+                Database.RunSQL(sql);
+            }
         }
     }
 }
