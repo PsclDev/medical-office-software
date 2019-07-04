@@ -12,6 +12,8 @@ namespace MoS {
             Properties.AppContent.Load();
             Log.Trace("Initalize MainWindow");
             GridMenuList.Children.Add(new UserControls.Menu());
+            if (Properties.loggedOnUser.Permission == "doctor")
+                BtnLogs.Visibility = Visibility.Visible;
         }
 
         #region Variables

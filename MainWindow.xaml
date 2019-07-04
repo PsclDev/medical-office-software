@@ -42,7 +42,7 @@
             <Grid Width="888" HorizontalAlignment="Left" Margin="60 0 0 0" Background="Transparent" MouseDown="Grid_MouseDown"/>
             <TextBlock Text="Medical Office Software" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button x:Name="BtnLogs" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Click="BtnLogs_Click">
+                <Button x:Name="BtnLogs" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Click="BtnLogs_Click" Visibility="Hidden">
                     <materialDesign:PackIcon Kind="FileCompare" Width="30" Height="20" Foreground="White"/>
                 </Button>
                 <Button x:Name="BtnSettings" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Click="BtnSettings_Click">
